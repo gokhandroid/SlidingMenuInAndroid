@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">SlidingMenuInAndroid</string>
+    <string name="title_activity_main">Slide Menü</string>
+    <string name="opened">Menü Açık</string>
+    <string name="closed">Menü Kapalı</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string-array name="slidemenu_item">
+        <item>Anasayfa</item>
+        <item>Birinci Sayfa</item>
+        <item>İkinci Sayfa</item>
+        <item>Üçüncü Sayfa</item>
+    </string-array>
 </resources>
