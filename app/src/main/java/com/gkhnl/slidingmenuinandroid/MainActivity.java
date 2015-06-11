@@ -17,7 +17,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
 
     DrawerLayout drawerLayout;
-    ActionBarDrawerToggle toogle;
+    ActionBarDrawerToggle toggle;
     ListView lw_SlideMenu;
     SlideMenuAdapter adapter;
 
@@ -32,6 +32,11 @@ public class MainActivity extends ActionBarActivity {
 
         lw_SlideMenu = (ListView) findViewById(R.id.lw_Menu);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+
+        // Açılışta uygulama ismini alıyor
+        actionBarTitle = appTitle = getSupportActionBar().getTitle();
+
+        // Menü başlıklarını kaynak dosyasından çekiyor
         titles = getResources().getStringArray(R.array.slidemenu_item);
         items = new ArrayList<SlideMenuItem>();
 
@@ -40,25 +45,29 @@ public class MainActivity extends ActionBarActivity {
         items.add(new SlideMenuItem(titles[2]));
         items.add(new SlideMenuItem(titles[3]));
 
+        // Menüdeki her list item a click veriyor
         lw_SlideMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                // Her item a tıklanıldığında actionBar daki görünen başlığı değiştiriyor
                 actionBarTitle = items.get(i).getTitle();
+
+                // menü tıklamadan sonra kapanıyor
                 drawerLayout.closeDrawer(lw_SlideMenu);
             }
         });
 
-
-        actionBarTitle = appTitle = getSupportActionBar().getTitle();
-
         adapter = new SlideMenuAdapter(items, getApplicationContext());
         lw_SlideMenu.setAdapter(adapter);
 
+        // Toggle butonuna click veriyoruz, home butonu gibi davranmasını sağlıyor.
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        toogle = new ActionBarDrawerToggle(this, drawerLayout, R.string.opened, R.string.closed) {
+        // toggle nesnesi oluşturuyoruz.
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.opened, R.string.closed) {
+
             @Override
             public void onDrawerOpened(View drawerView) {
                 getSupportActionBar().setTitle(appTitle);
@@ -72,8 +81,10 @@ public class MainActivity extends ActionBarActivity {
             }
         };
 
-        toogle.syncState();
-        drawerLayout.setDrawerListener(toogle);
+        // toggle açılıp kapanmasına göre, toggle iconu değiştiriyor.
+        toggle.syncState();
+        // menü açılıp kapanmasını dinliyoruz.
+        drawerLayout.setDrawerListener(toggle);
 
     }
 
@@ -89,7 +100,8 @@ public class MainActivity extends ActionBarActivity {
 
         int id = item.getItemId();
 
-        if (toogle.onOptionsItemSelected(item)) {
+        // toggle icona tıklanıldığında menünün açılmasını sağlıyor
+        if (toggle.onOptionsItemSelected(item)) {
             return true;
         }
 
