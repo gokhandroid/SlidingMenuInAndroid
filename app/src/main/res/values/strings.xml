@@ -14,4 +14,11 @@
         <item>İkinci Sayfa</item>
         <item>Üçüncü Sayfa</item>
     </string-array>
+
+    <array name="facebook">
+        <item name="facebook">@drawable/facebook</item>
+        <item name="twitter">@drawable/twitter</item>
+        <item name="google">@drawable/google</item>
+        <item name="instagram">@drawable/instagram</item>
+    </array>
 </resources>
