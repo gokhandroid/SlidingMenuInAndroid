@@ -51,6 +51,8 @@ public class MainActivity extends ActionBarActivity {
 
         // icons dizimizi kaynak dosyadan çekiyoruz
         icons = getResources().obtainTypedArray(R.array.icons);
+        // Ram i şişirmemek için resimleri yeniden yükler
+        icons.recycle();
 
         items = new ArrayList<SlideMenuItem>();
 
@@ -134,7 +136,8 @@ public class MainActivity extends ActionBarActivity {
         if(fragment != null){
 
             // Fragment transaction nesnesi ile fragment ekranları arasında geçiş sağlıyor
-            android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.replace(R.id.container, fragment).addToBackStack(fragment_name).commit();
 
             // Stack te bulunan fragment sayısını alıyor
