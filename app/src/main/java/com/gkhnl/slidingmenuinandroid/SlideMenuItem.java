@@ -6,12 +6,14 @@ package com.gkhnl.slidingmenuinandroid;
 public class SlideMenuItem {
 
     private String title;
+    private int icon;
 
     public SlideMenuItem() {
     }
 
-    public SlideMenuItem(String title) {
+    public SlideMenuItem(String title, int icon) {
         this.title = title;
+        this.icon = icon;
     }
 
     public String getTitle() {
@@ -20,5 +22,13 @@ public class SlideMenuItem {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
     }
 }

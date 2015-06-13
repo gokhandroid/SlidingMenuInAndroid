@@ -9,16 +9,17 @@
 
 
     <string-array name="slidemenu_item">
-        <item>Anasayfa</item>
-        <item>Birinci Sayfa</item>
-        <item>İkinci Sayfa</item>
-        <item>Üçüncü Sayfa</item>
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>Google Plus</item>
+        <item>Instagram</item>
     </string-array>
 
-    <array name="facebook">
+    <array name="icons">
         <item name="facebook">@drawable/facebook</item>
         <item name="twitter">@drawable/twitter</item>
         <item name="google">@drawable/google</item>
         <item name="instagram">@drawable/instagram</item>
     </array>
+
 </resources>
