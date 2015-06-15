@@ -43,9 +43,6 @@ public class MainActivity extends ActionBarActivity {
         lw_SlideMenu = (ListView) findViewById(R.id.lw_Menu);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 
-        // Açılışta uygulama ismini alıyor
-        actionBarTitle = appTitle = getSupportActionBar().getTitle();
-
         // Menü başlıklarını kaynak dosyasından çekiyor
         titles = getResources().getStringArray(R.array.slidemenu_item);
 
@@ -60,6 +57,10 @@ public class MainActivity extends ActionBarActivity {
         items.add(new SlideMenuItem(titles[1], icons.getResourceId(1, 0)));
         items.add(new SlideMenuItem(titles[2], icons.getResourceId(2, 0)));
         items.add(new SlideMenuItem(titles[3], icons.getResourceId(3,0)));
+
+        // Açılışta uygulama ismini alıyor
+        appTitle = getSupportActionBar().getTitle();
+        actionBarTitle = items.get(0).getTitle();
 
         // Menüdeki her list item a click veriyor
         lw_SlideMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
