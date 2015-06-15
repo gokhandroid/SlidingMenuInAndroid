@@ -16,8 +16,6 @@ import java.util.List;
 public class SlideMenuAdapter extends BaseAdapter {
 
     private List<SlideMenuItem> items;
-    private TextView txt_title;
-    private ImageView img_icon;
     private Context ctx;
 
     public SlideMenuAdapter(List<SlideMenuItem> items, Context context) {
@@ -47,25 +45,34 @@ public class SlideMenuAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
 
+        ViewHolder holder = null;
+
         // Her list item için custom tasarım yüklüyor
         if (view == null) {
+
+            holder = new ViewHolder();
 
             view = LayoutInflater.from(ctx).inflate(R.layout.slidemenu_item, null);
 
             // Yeni tasarım içindeki title textine ulaşıp, veriyi set ediyor
-            txt_title = (TextView) view.findViewById(R.id.txt_title);
-            img_icon = (ImageView) view.findViewById(R.id.img_icon);
+            holder.txt_title = (TextView) view.findViewById(R.id.txt_title);
+            holder.img_icon = (ImageView) view.findViewById(R.id.img_icon);
 
-            txt_title.setText(items.get(position).getTitle());
-            img_icon.setImageResource(items.get(position).getIcon());
+            holder.txt_title.setText(items.get(position).getTitle());
+            holder.img_icon.setImageResource(items.get(position).getIcon());
 
-            return view;
+            view.setTag(holder);
+
+        } else {
+            holder = (ViewHolder) view.getTag();
         }
 
-        return null;
+        return view;
     }
 
     static class ViewHolder {
-        
+
+        public TextView txt_title;
+        public ImageView img_icon;
     }
 }
