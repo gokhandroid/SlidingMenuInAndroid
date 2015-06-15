@@ -64,4 +64,8 @@ public class SlideMenuAdapter extends BaseAdapter {
 
         return null;
     }
+
+    static class ViewHolder {
+        
+    }
 }
