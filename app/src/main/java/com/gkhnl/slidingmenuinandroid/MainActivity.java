@@ -163,6 +163,7 @@ public class MainActivity extends ActionBarActivity {
         if(getSupportFragmentManager().getBackStackEntryCount() != 1)
             super.onBackPressed();
 
+
         else {
             finish();
             System.exit(0);
